@@ -1,10 +1,4 @@
-# Lemmy AWS CDK
-
-[Lemmy](https://github.com/LemmyNet/lemmy) is a Reddit-style federated social network that speaks ActivityPub. It is written in Rust.
-
-This contains the necessary infrastructure definitions to deploy [Lemmy](https://github.com/LemmyNet/lemmy)
-to AWS using their [Cloud Development Kit](https://docs.aws.amazon.com/cdk/latest/guide/home.html).
-
+# Ultri Platform - AWS CDK
 
 ### Included:
 
@@ -13,14 +7,17 @@ to AWS using their [Cloud Development Kit](https://docs.aws.amazon.com/cdk/lates
   * Lemmy
   * Pictrs
   * IFramely
+  * Ultri API
+  * SuperTokens
 * CloudFront CDN
 * EFS storage for image uploads
 * Aurora Serverless Postgres DB
+* Redis cache
 * Bastion VPC host
-* Load balancers for Lemmy and IFramely
+* Load balancers for Lemmy, IFramely, Ultri API
 * DNS records for your site
 
-## Quickstart
+## Lemmy Quickstart
 
 Clone [Lemmy](https://github.com/LemmyNet/lemmy) and [Lemmy-UI](https://github.com/LemmyNet/lemmy-ui) to the directory above this.
 
@@ -37,9 +34,6 @@ npm install
 cdk bootstrap
 cdk deploy
 ```
-
-## Cost
-This is *not* the cheapest way to run Lemmy. The Serverless Aurora DB can run you ~$90/mo if it doesn't go to sleep.
 
 ## Useful CDK commands
 
