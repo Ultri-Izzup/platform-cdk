@@ -13,7 +13,7 @@ import { DB_NAME } from "../database";
 import { IFRAMELY_NAME, IFRAMELY_PORT } from "./iframely";
 import { PICTRS_NAME, PICTRS_PORT } from "./pictrs";
 
-interface ILemmyAppProps {
+interface IUltriAppProps {
   taskDef: TaskDefinition;
   db: ServerlessCluster;
 }
@@ -41,7 +41,7 @@ export class LemmyBackend extends core.Construct {
   constructor(
     scope: core.Construct,
     id: string,
-    { taskDef, db }: ILemmyAppProps
+    { taskDef, db }: IUltriAppProps
   ) {
     super(scope, id);
     // generate a JWT secret key

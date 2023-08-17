@@ -7,7 +7,7 @@ import * as path from "path";
 require("dotenv-flow").config();
 
 interface IConfig {
-  SITE_DOMAIN_NAME: string;
+  LEMMY_SITE_DOMAIN_NAME: string;
   AWS_ACCOUNT: string;
   AWS_REGION: string;
   HTTPS_ENABLED: boolean;
@@ -40,7 +40,7 @@ class SiteConfig {
 
   // e.g. federation.dev
   get siteDomainName() {
-    return env.SITE_DOMAIN_NAME;
+    return env.LEMMY_SITE_DOMAIN_NAME;
   }
 
   // e.g. www.federation.dev

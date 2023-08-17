@@ -3,9 +3,9 @@ import * as rds from "@aws-cdk/aws-rds";
 import * as core from "@aws-cdk/core";
 import { siteConfig } from "./config";
 
-export const DB_NAME = "lemmy";
+export const DB_NAME = "ultri";
 
-interface ILemmyAppProps {
+interface IUltriAppProps {
   vpc: Vpc;
 }
 
@@ -13,7 +13,7 @@ export class Database extends core.Construct {
   cluster: rds.ServerlessCluster;
   securityGroup: SecurityGroup;
 
-  constructor(scope: core.Construct, id: string, { vpc }: ILemmyAppProps) {
+  constructor(scope: core.Construct, id: string, { vpc }: IUltriAppProps) {
     super(scope, id);
 
     this.securityGroup = new SecurityGroup(this, "DBSecurityGroup", {
@@ -21,7 +21,7 @@ export class Database extends core.Construct {
       description: "Database ingress",
     });
 
-    this.cluster = new rds.ServerlessCluster(this, "LemmyCluster", {
+    this.cluster = new rds.ServerlessCluster(this, "UltriCluster", {
       engine: rds.DatabaseClusterEngine.AURORA_POSTGRESQL,
       parameterGroup: rds.ParameterGroup.fromParameterGroupName(
         this,
@@ -31,7 +31,7 @@ export class Database extends core.Construct {
       defaultDatabaseName: DB_NAME,
       vpc,
       securityGroups: [this.securityGroup],
-      clusterIdentifier: "lemmy",
+      clusterIdentifier: "ultri",
       scaling: {
         minCapacity: 2,
         maxCapacity: siteConfig.dbMaxCapacity,

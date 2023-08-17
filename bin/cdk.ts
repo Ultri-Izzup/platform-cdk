@@ -15,4 +15,4 @@ const envProd = {
 };
 
 const app = new cdk.App();
-new Stack(app, "Lemmy", { env: envProd });
+new Stack(app, "Ultri", { env: envProd });
